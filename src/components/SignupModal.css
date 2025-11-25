@@ -1,0 +1,247 @@
+.signup-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  animation: fadeIn 0.3s ease;
+}
+
+.signup-modal-content {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 450px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+[data-theme='dark'] .signup-modal-content {
+  background: #2a2a3e;
+  color: var(--text-primary);
+}
+
+.signup-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.signup-close-btn:hover {
+  background: #e0e0e0;
+  transform: rotate(90deg);
+}
+
+.signup-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.signup-header h2 {
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+[data-theme='dark'] .signup-header h2 {
+  color: var(--text-primary);
+}
+
+.signup-header p {
+  color: #666;
+  font-size: 14px;
+}
+
+.signup-error {
+  background: #fee;
+  color: #c33;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border-left: 4px solid #c33;
+}
+
+[data-theme='dark'] .signup-error {
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8f9fa;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+[data-theme='dark'] .form-group {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.form-group:focus-within {
+  border-color: #667eea;
+  background: white;
+}
+
+[data-theme='dark'] .form-group:focus-within {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-group svg {
+  color: #667eea;
+  flex-shrink: 0;
+}
+
+.form-group input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #333;
+}
+
+[data-theme='dark'] .form-group input {
+  color: var(--text-primary);
+}
+
+.form-group input::placeholder {
+  color: #999;
+}
+
+.otp-group {
+  justify-content: center;
+}
+
+.otp-input {
+  font-size: 32px;
+  letter-spacing: 8px;
+  text-align: center;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+  color: #667eea;
+}
+
+.otp-info {
+  text-align: center;
+  padding: 15px;
+  background: #f0f7ff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+[data-theme='dark'] .otp-info {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.otp-info p {
+  color: #667eea;
+  font-size: 14px;
+  margin: 0;
+}
+
+.signup-submit-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
+}
+
+.signup-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.signup-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.resend-otp-btn {
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
+}
+
+.resend-otp-btn:hover:not(:disabled) {
+  background: #667eea;
+  color: white;
+}
+
+.resend-otp-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.signup-footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+[data-theme='dark'] .signup-footer {
+  border-top-color: #444;
+}
+
+.signup-footer p {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.switch-btn {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-size: 14px;
+}
+
+.switch-btn:hover {
+  color: #5568d3;
+}
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Icons for Yprods נסיעות</title>
+</head>
+<body>
+    <h1>Icon Generator</h1>
+    <p>Open browser console and run the code below, or click the buttons to download icons.</p>
+    
+    <button onclick="createIcon(192, 'icon-192.png')">Create 192x192</button>
+    <button onclick="createIcon(512, 'icon-512.png')">Create 512x512</button>
+    <button onclick="createIcon(32, 'favicon.ico')">Create 32x32 (favicon)</button>
+    
+    <canvas id="canvas" style="border: 1px solid #ccc; margin: 20px;"></canvas>
+    
+    <script>
+        function createIcon(size, filename) {
+            const canvas = document.getElementById('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient - blue theme
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#4a90e2');
+            gradient.addColorStop(1, '#357abd');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Draw globe
+            const centerX = size / 2;
+            const centerY = size / 2;
+            const radius = size * 0.35;
+            
+            // Globe circle
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = size * 0.03;
+            ctx.stroke();
+            
+            // Latitude lines
+            for (let i = -2; i <= 2; i++) {
+                const y = centerY + (i * radius * 0.4);
+                ctx.beginPath();
+                ctx.ellipse(centerX, y, radius, radius * 0.3, 0, 0, Math.PI * 2);
+                ctx.strokeStyle = '#ffffff';
+                ctx.lineWidth = size * 0.015;
+                ctx.stroke();
+            }
+            
+            // Longitude lines
+            for (let i = -2; i <= 2; i++) {
+                const x = centerX + (i * radius * 0.4);
+                ctx.beginPath();
+                ctx.ellipse(x, centerY, radius * 0.3, radius, 0, 0, Math.PI * 2);
+                ctx.strokeStyle = '#ffffff';
+                ctx.lineWidth = size * 0.015;
+                ctx.stroke();
+            }
+            
+            // Pin marker
+            const pinSize = size * 0.15;
+            ctx.fillStyle = '#ff6b6b';
+            ctx.beginPath();
+            ctx.arc(centerX + radius * 0.3, centerY - radius * 0.2, pinSize * 0.3, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(centerX + radius * 0.3, centerY - radius * 0.2 + pinSize * 0.3);
+            ctx.lineTo(centerX + radius * 0.3 - pinSize * 0.15, centerY - radius * 0.2 + pinSize * 0.5);
+            ctx.lineTo(centerX + radius * 0.3 + pinSize * 0.15, centerY - radius * 0.2 + pinSize * 0.5);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Download
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                console.log(`Created ${filename}`);
+            }, 'image/png');
+        }
+        
+        // Auto-create all icons on load
+        window.onload = function() {
+            setTimeout(() => {
+                createIcon(192, 'icon-192.png');
+                setTimeout(() => {
+                    createIcon(512, 'icon-512.png');
+                    setTimeout(() => {
+                        createIcon(32, 'favicon.ico');
+                    }, 500);
+                }, 500);
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="192" height="192" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" fill="url(#grad)" rx="19.200000000000003"/>
+  <circle cx="96" cy="96" r="67.19999999999999" fill="none" stroke="#ffffff" stroke-width="5.76"/>
+  <ellipse cx="96" cy="76.80000000000001" rx="67.19999999999999" ry="19.200000000000003" fill="none" stroke="#ffffff" stroke-width="2.88"/>
+  <ellipse cx="96" cy="96" rx="67.19999999999999" ry="19.200000000000003" fill="none" stroke="#ffffff" stroke-width="2.88"/>
+  <ellipse cx="96" cy="115.19999999999999" rx="67.19999999999999" ry="19.200000000000003" fill="none" stroke="#ffffff" stroke-width="2.88"/>
+  <ellipse cx="67.19999999999999" cy="96" rx="19.200000000000003" ry="67.19999999999999" fill="none" stroke="#ffffff" stroke-width="2.88"/>
+  <ellipse cx="96" cy="96" rx="19.200000000000003" ry="67.19999999999999" fill="none" stroke="#ffffff" stroke-width="2.88"/>
+  <ellipse cx="124.80000000000001" cy="96" rx="19.200000000000003" ry="67.19999999999999" fill="none" stroke="#ffffff" stroke-width="2.88"/>
+  <circle cx="124.80000000000001" cy="86.4" r="9.600000000000001" fill="#ff6b6b"/>
+  <path d="M 124.80000000000001 96 L 115.19999999999999 115.19999999999999 L 134.39999999999998 115.19999999999999 Z" fill="#ff6b6b"/>
+  <text x="96" y="153.60000000000002" font-family="Arial" font-size="28.799999999999997" fill="#ffffff" text-anchor="middle" font-weight="bold">🌍</text>
+</svg>

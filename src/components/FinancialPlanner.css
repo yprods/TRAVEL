@@ -1,0 +1,362 @@
+.financial-planner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.financial-planner-panel {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideDown 0.3s ease;
+}
+
+[data-theme='dark'] .financial-planner-panel {
+  background: #2a2a3e;
+  color: var(--text-primary);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.financial-planner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid #eee;
+}
+
+[data-theme='dark'] .financial-planner-header {
+  border-bottom-color: #444;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-title h2 {
+  margin: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+[data-theme='dark'] .header-title h2 {
+  color: var(--text-primary);
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .close-btn {
+  color: #999;
+}
+
+[data-theme='dark'] .close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.financial-planner-content {
+  padding: 20px;
+}
+
+.budget-section {
+  margin-bottom: 20px;
+}
+
+.budget-section label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+[data-theme='dark'] .budget-section label {
+  color: var(--text-primary);
+}
+
+.budget-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.budget-inputs input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.budget-inputs select {
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+}
+
+[data-theme='dark'] .budget-inputs input,
+[data-theme='dark'] .budget-inputs select {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #444;
+  color: var(--text-primary);
+}
+
+.financial-summary {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+[data-theme='dark'] .financial-summary {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.summary-item span {
+  font-size: 12px;
+  color: #666;
+}
+
+[data-theme='dark'] .summary-item span {
+  color: #999;
+}
+
+.summary-item strong {
+  font-size: 18px;
+  color: #333;
+}
+
+[data-theme='dark'] .summary-item strong {
+  color: var(--text-primary);
+}
+
+.summary-item.positive strong {
+  color: #28a745;
+}
+
+.summary-item.negative strong {
+  color: #dc3545;
+}
+
+.add-expense-section {
+  margin-bottom: 20px;
+}
+
+.add-expense-section h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 18px;
+}
+
+[data-theme='dark'] .add-expense-section h3 {
+  color: var(--text-primary);
+}
+
+.expense-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.expense-form input,
+.expense-form select {
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+[data-theme='dark'] .expense-form input,
+[data-theme='dark'] .expense-form select {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #444;
+  color: var(--text-primary);
+}
+
+.add-expense-btn {
+  grid-column: 1 / -1;
+  padding: 12px;
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.add-expense-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+}
+
+.expenses-list h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 18px;
+}
+
+[data-theme='dark'] .expenses-list h3 {
+  color: var(--text-primary);
+}
+
+.no-expenses {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
+
+[data-theme='dark'] .no-expenses {
+  color: #666;
+}
+
+.expenses-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.expense-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 50px;
+  gap: 10px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #666;
+}
+
+[data-theme='dark'] .expense-header {
+  background: rgba(255, 255, 255, 0.05);
+  color: #999;
+}
+
+.expense-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 50px;
+  gap: 10px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  align-items: center;
+}
+
+[data-theme='dark'] .expense-row {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.remove-expense-btn {
+  background: transparent;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-expense-btn:hover {
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.export-pdf-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  transition: all 0.2s;
+}
+
+.export-pdf-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+@media (max-width: 768px) {
+  .financial-planner-panel {
+    max-width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .expense-form {
+    grid-template-columns: 1fr;
+  }
+
+  .expense-header,
+  .expense-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .expense-header span,
+  .expense-row span {
+    font-size: 12px;
+  }
+}
+

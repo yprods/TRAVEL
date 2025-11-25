@@ -1,0 +1,242 @@
+.accessibility-toggle {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+  transition: all 0.3s ease;
+}
+
+.accessibility-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.6);
+}
+
+.accessibility-panel {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 1001;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  min-width: 300px;
+  max-width: 400px;
+  animation: slideUp 0.3s ease;
+}
+
+[data-theme='dark'] .accessibility-panel {
+  background: #2a2a3e;
+  color: var(--text-primary);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accessibility-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #eee;
+}
+
+[data-theme='dark'] .accessibility-header {
+  border-bottom-color: #444;
+}
+
+.accessibility-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+[data-theme='dark'] .accessibility-header h3 {
+  color: var(--text-primary);
+}
+
+.close-accessibility {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.close-accessibility:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .close-accessibility {
+  color: #999;
+}
+
+[data-theme='dark'] .close-accessibility:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.accessibility-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.accessibility-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+[data-theme='dark'] .group-header {
+  color: var(--text-primary);
+}
+
+.group-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+
+.group-controls button {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid #4a90e2;
+  background: white;
+  color: #4a90e2;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.group-controls button:hover {
+  background: #4a90e2;
+  color: white;
+}
+
+.group-controls span {
+  min-width: 60px;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+}
+
+[data-theme='dark'] .group-controls span {
+  color: var(--text-primary);
+}
+
+.toggle-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #4a90e2;
+  background: white;
+  color: #4a90e2;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-btn:hover {
+  background: #f0f0f0;
+}
+
+.toggle-btn.active {
+  background: #4a90e2;
+  color: white;
+}
+
+[data-theme='dark'] .toggle-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.reset-accessibility-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #999;
+  background: white;
+  color: #666;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
+}
+
+.reset-accessibility-btn:hover {
+  background: #f0f0f0;
+  border-color: #666;
+}
+
+[data-theme='dark'] .reset-accessibility-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #999;
+  border-color: #666;
+}
+
+[data-theme='dark'] .reset-accessibility-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* High contrast mode */
+body.high-contrast {
+  filter: contrast(1.2);
+}
+
+body.high-contrast * {
+  border-color: #000 !important;
+}
+
+@media (max-width: 768px) {
+  .accessibility-toggle {
+    bottom: 100px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .accessibility-panel {
+    bottom: 150px;
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+    max-width: none;
+  }
+}
+
