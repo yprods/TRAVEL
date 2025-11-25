@@ -85,10 +85,15 @@ fi
 if [ -z "$DOMAIN" ]; then
     echo -e "${YELLOW}⚠️  No domain provided. SSL will be skipped.${NC}"
     echo -e "${YELLOW}   Usage: ./deploy-vps.sh example.com admin@example.com${NC}"
-    read -p "Continue without SSL? (y/n): " -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        exit 1
+    echo -e "${BLUE}   Continuing with HTTP only (no SSL)...${NC}"
+    echo ""
+    # Auto-continue if running non-interactively (e.g., from deploy-vps-auto.sh)
+    if [ -t 0 ]; then
+        read -p "Continue without SSL? (y/n): " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            exit 1
+        fi
     fi
 fi
 

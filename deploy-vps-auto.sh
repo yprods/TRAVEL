@@ -74,11 +74,8 @@ if [ "$EUID" -eq 0 ]; then
    echo ""
    
    # Switch to new user and run deployment
-   sudo -u $NEW_USER bash << EOF
-cd $DEPLOY_DIR
-chmod +x deploy-vps.sh
-./deploy-vps.sh "$DOMAIN" "$SSL_EMAIL"
-EOF
+   # Use -i to allow interactive if needed, but pass domain to avoid prompts
+   sudo -u $NEW_USER bash -c "cd $DEPLOY_DIR && chmod +x deploy-vps.sh && ./deploy-vps.sh \"$DOMAIN\" \"$SSL_EMAIL\""
    
    exit $?
 fi
