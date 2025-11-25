@@ -25,7 +25,59 @@ echo "=============================================="
 
 # Check if running as root
 if [ "$EUID" -eq 0 ]; then 
-   echo -e "${RED}❌ Please do not run as root. Use a regular user with sudo privileges.${NC}"
+   echo -e "${RED}❌ This script cannot run as root.${NC}"
+   echo ""
+   echo -e "${YELLOW}🔧 Quick Solution - Use Auto-Deploy Script:${NC}"
+   echo ""
+   echo -e "${GREEN}Option 1: Auto-Deploy (Recommended)${NC}"
+   echo -e "  Run this instead: ${BLUE}./deploy-vps-auto.sh${NC}"
+   echo -e "  This will create a user automatically and continue deployment"
+   echo ""
+   echo -e "  ${BLUE}Usage:${NC}"
+   echo -e "    ${GREEN}./deploy-vps-auto.sh travelapp yourdomain.com admin@yourdomain.com${NC}"
+   echo ""
+   echo -e "${GREEN}Option 2: Create User Manually${NC}"
+   echo -e "  1. Run: ${BLUE}bash create-vps-user.sh${NC}"
+   echo -e "  2. Or: ${BLUE}adduser yourusername && usermod -aG sudo yourusername${NC}"
+   echo -e "  3. Exit and reconnect: ${BLUE}exit${NC} then ${BLUE}ssh yourusername@your-vps-ip${NC}"
+   echo ""
+   echo -e "${YELLOW}📖 See QUICK-DEPLOY.md for detailed instructions${NC}"
+   echo ""
+   
+   # Check if auto-deploy script exists
+   if [ -f "deploy-vps-auto.sh" ]; then
+       echo ""
+       echo -e "${GREEN}✅ Auto-deploy script found!${NC}"
+       echo ""
+       echo -e "${BLUE}💡 Would you like to run it automatically now? (y/n)${NC}"
+       echo -e "${YELLOW}   (This will create a user and deploy the app)${NC}"
+       read -p "> " -n 1 -r
+       echo ""
+       if [[ $REPLY =~ ^[Yy]$ ]]; then
+           echo ""
+           echo -e "${BLUE}🚀 Running auto-deploy script...${NC}"
+           echo ""
+           chmod +x deploy-vps-auto.sh
+           ./deploy-vps-auto.sh "${1:-travelapp}" "${2:-}" "${3:-}"
+           exit $?
+       else
+           echo ""
+           echo -e "${YELLOW}To run manually, use:${NC}"
+           echo -e "${GREEN}  chmod +x deploy-vps-auto.sh${NC}"
+           echo -e "${GREEN}  ./deploy-vps-auto.sh travelapp yourdomain.com admin@yourdomain.com${NC}"
+           echo ""
+       fi
+   else
+       echo ""
+       echo -e "${RED}❌ deploy-vps-auto.sh not found in current directory${NC}"
+       echo -e "${YELLOW}   Make sure you uploaded all files to the VPS${NC}"
+       echo ""
+       echo -e "${BLUE}Current directory: $(pwd)${NC}"
+       echo -e "${BLUE}Files in directory:${NC}"
+       ls -la | head -10
+       echo ""
+   fi
+   
    exit 1
 fi
 

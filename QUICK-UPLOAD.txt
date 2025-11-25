@@ -1,0 +1,57 @@
+================================================================================
+                    QUICK UPLOAD TO VPS
+================================================================================
+
+YOUR FILES ARE NOT ON THE VPS - UPLOAD THEM FIRST!
+
+================================================================================
+METHOD 1: Using SCP (Command Line)
+================================================================================
+
+From Windows PowerShell (in your project directory):
+
+scp -r * root@YOUR-VPS-IP:/root/travel-app
+
+Replace YOUR-VPS-IP with your actual VPS IP address!
+
+================================================================================
+METHOD 2: Using WinSCP (GUI - Easier)
+================================================================================
+
+1. Download WinSCP: https://winscp.net/
+2. Install and open
+3. Connect to: root@your-vps-ip
+4. Navigate to /root/travel-app (create if needed)
+5. Drag and drop all files from your project folder
+
+================================================================================
+METHOD 3: Using FileZilla
+================================================================================
+
+1. Download FileZilla: https://filezilla-project.org/
+2. Connect via SFTP to: root@your-vps-ip
+3. Upload all files to /root/travel-app
+
+================================================================================
+AFTER UPLOADING:
+================================================================================
+
+1. SSH to VPS:
+   ssh root@your-vps-ip
+
+2. Navigate to project:
+   cd /root/travel-app
+
+3. Verify files:
+   ls -la deploy-vps-auto.sh
+
+4. Make executable:
+   chmod +x deploy-vps-auto.sh
+
+5. Run deployment:
+   ./deploy-vps-auto.sh travelapp yourdomain.com admin@yourdomain.com
+
+================================================================================
+NEED HELP? See UPLOAD-TO-VPS.md
+================================================================================
+

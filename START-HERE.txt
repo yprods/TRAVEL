@@ -1,0 +1,50 @@
+================================================================================
+                    TRAVEL APP - QUICK DEPLOYMENT GUIDE
+================================================================================
+
+YOU ARE RUNNING AS ROOT - USE THE AUTO-DEPLOY SCRIPT!
+
+================================================================================
+STEP 1: Make script executable
+================================================================================
+
+chmod +x deploy-vps-auto.sh
+
+================================================================================
+STEP 2: Run the script
+================================================================================
+
+WITH DOMAIN (HTTPS):
+./deploy-vps-auto.sh travelapp yourdomain.com admin@yourdomain.com
+
+WITHOUT DOMAIN (HTTP only):
+./deploy-vps-auto.sh travelapp
+
+================================================================================
+WHAT IT DOES:
+================================================================================
+
+1. Creates user 'travelapp' (or name you choose)
+2. Adds sudo privileges
+3. Switches to that user
+4. Deploys the application
+5. Sets up HTTPS (if domain provided)
+
+================================================================================
+REPLACE THESE VALUES:
+================================================================================
+
+- travelapp        -> Your preferred username
+- yourdomain.com   -> Your actual domain
+- admin@...       -> Your email for SSL
+
+================================================================================
+EXAMPLE:
+================================================================================
+
+./deploy-vps-auto.sh myuser example.com admin@example.com
+
+================================================================================
+NEED HELP? See DEPLOY-NOW.md or README-DEPLOYMENT.md
+================================================================================
+
