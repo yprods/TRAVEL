@@ -38,7 +38,7 @@ if pm2 list | grep -q "travel-app"; then
     pm2 restart travel-app
 else
     echo "⚠️  App not running, starting it..."
-    pm2 start ecosystem.config.js || pm2 start server/index.js --name travel-app
+    pm2 start ecosystem.config.cjs || pm2 start server/index.js --name travel-app
     pm2 save
 fi
 

@@ -117,7 +117,8 @@ npm run build
 
 # Create PM2 ecosystem file
 echo -e "${YELLOW}📝 Creating PM2 configuration...${NC}"
-cat > ecosystem.config.js << EOF
+cat > ecosystem.config.cjs << EOF
+// PM2 ecosystem config - CommonJS format for ES modules projects
 module.exports = {
   apps: [{
     name: 'travel-app',
@@ -144,7 +145,7 @@ mkdir -p logs
 # Start application with PM2
 echo -e "${YELLOW}🚀 Starting application with PM2...${NC}"
 pm2 delete travel-app 2>/dev/null || true
-pm2 start ecosystem.config.js
+pm2 start ecosystem.config.cjs
 pm2 save
 
 # Setup PM2 startup script

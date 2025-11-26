@@ -1,6 +1,5 @@
-// PM2 ecosystem config - must use CommonJS syntax
-// Renamed to .cjs to work with ES modules project
-export default {
+// PM2 ecosystem config - CommonJS format for ES modules projects
+module.exports = {
   apps: [{
     name: 'travel-app',
     script: 'server/index.js',
@@ -22,4 +21,3 @@ export default {
     ignore_watch: ['node_modules', 'logs', 'dist', 'uploads']
   }]
 }
-

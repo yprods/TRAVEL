@@ -218,7 +218,8 @@ echo -e "${GREEN}✅ Frontend built${NC}"
 
 # Step 14: Create PM2 ecosystem file
 echo -e "${BLUE}📝 Step 14: Creating PM2 configuration...${NC}"
-cat > ecosystem.config.js << EOF
+cat > ecosystem.config.cjs << EOF
+// PM2 ecosystem config - CommonJS format for ES modules projects
 module.exports = {
   apps: [{
     name: '$APP_NAME',
@@ -249,7 +250,7 @@ echo -e "${GREEN}✅ PM2 configuration created${NC}"
 # Step 15: Start/restart application with PM2
 echo -e "${BLUE}🚀 Step 15: Starting application with PM2...${NC}"
 pm2 delete $APP_NAME 2>/dev/null || true
-pm2 start ecosystem.config.js
+pm2 start ecosystem.config.cjs
 pm2 save
 echo -e "${GREEN}✅ Application started with PM2${NC}"
 
